@@ -1,13 +1,13 @@
 import Header from './components/Header';
+import HorseList from './components/HorseList';
 
 function App() {
   return (
     <div className="App">
-      <Header>
-        </Header>
-        <h1 className="text-2xl px-4 py-2">Welcome to the Sample Horse App</h1>
-        <br/>
-        <h2 className="px-4">Please navigate using the header.</h2>
+      <Header />
+        <h1 className="text-xl px-4 py-2">Welcome to the Horse App</h1>
+
+      <HorseList />
     </div>
   );
 }
