@@ -1,5 +1,5 @@
 # Horse App - Amy Bohte
-Created as part of First AML technical test.
+Created as part of a technical test.
 
 ## Tech Stack 📚
 - TypeScript
