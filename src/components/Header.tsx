@@ -1,3 +1,4 @@
+// Simple header for stylistic purposes
 const Header = () => {
     return (
         <header className="header">
