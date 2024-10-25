@@ -2,8 +2,9 @@ const Header = () => {
     return (
         <header className="header">
             <nav className="flex space-x-4" >
+            <h1 className="text-slate-700 px-4 py-2">Horse App</h1>
             {[
-                ['Home', '/dashboard'],
+                ['Home', '/'],
                 ['Add a Horse', '/add'],
                 ['View Horses', '/horses'],
             ].map(([title, url]) => (
