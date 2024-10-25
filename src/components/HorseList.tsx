@@ -25,9 +25,12 @@ const HorseList = () => {
 
     return (
         <div>
-            <h1 className="px-4">Our Horses</h1>
-            {/* Display each horse */}
-            {horses.map((horse) => {
+            <h1 className="px-4 text-xl">Our Horses</h1>
+            <p className="px-4 text-sm"><em>Click any name to see their details.</em></p>
+            {/* Display each horse in a list
+              * I've chosen to slice the array - if I had more time I would paginate this           
+              */}
+            {horses.slice(0,10).map((horse) => {
                 return (
                     <div className="px-4">
                         <Horse name={horse.name}/>

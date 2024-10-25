@@ -23,5 +23,5 @@ Created as part of First AML technical test.
 - Using Tailwind CSS for basic formatting as it is quick to set up
 
 ### Implementations made
-- List horses
-- Add horses
+- List horses (unfortunately no pagination)
+- Add a horse
