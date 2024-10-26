@@ -24,13 +24,23 @@ const AddHorse = () => {
         setFormData(prevData => ({...prevData, [name]: value}))
       }
 
-      const onSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-          
-        }catch (error) {
-          console.error(error);
+      async function usePostData(formData: any) {
+            fetch('http://localhost:3016/horse', {
+                method: 'PUT',
+                headers : { 
+                    'Content-Type': 'application/json'
+                    },
+                body: JSON.stringify({formData})
+                })
+                .then((response) => response.json())
+                .catch((err) => {
+                    console.log(err.message);
+                });
         }
+
+      const useSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        usePostData(formData);
       }
     
     return (
@@ -38,12 +48,13 @@ const AddHorse = () => {
             <br/>
             <h1 className="text-xl py-0.5">Add a new Horse!</h1>
             <p className="text-sm"><em>The fields in <b>bold</b> are mandatory.</em></p>
-            <form name="horse-form" className="flex flex-col" onSubmit={onSubmit}>
+
+            <form name="horse-form" className="flex flex-col" onSubmit={useSubmit}>
                 <label className="py-1">
-                    <b>Name:</b> <input required id="name" type="text" form="horse-form" max="50" onChange={onChange} className="border-2"/>
+                    <b>Name:</b> <input required id="name" type="text" form="horse-form" onChange={onChange} className="border-2"/>
                 </label>
                 <label className="py-1">
-                    Favorite Food: <input id="favoriteFood" type="text" form="horse-form" max="50" onChange={onChange} className="border-2"/>
+                    Favorite Food: <input id="favoriteFood" type="text" form="horse-form" onChange={onChange} className="border-2"/>
                 </label>
                 <label className="py-1">
                     Height (cm): <input id="height" type="number" form="horse-form" onChange={onChange} className="border-2"/>
@@ -51,9 +62,9 @@ const AddHorse = () => {
                 <label className="py-1">
                     Weight (kg): <input id="weight" type="number" form="horse-form" onChange={onChange} className="border-2"/>
                 </label>
+                <input type="submit" className="bg-gray-200 hover:bg-gray-300 font-bold rounded-full py-1 px-5"/>
             </form>
             <br/>
-            <input type="submit" className="bg-gray-200 hover:bg-gray-300 font-bold rounded-full py-1 px-5"/>
         </div>
     );
 }
