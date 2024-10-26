@@ -52,7 +52,7 @@ const HorseList = () => {
         const height = formData.height;
         const weight = formData.weight;
 
-        fetch('http://localhost:3016/horse', {
+        await fetch('http://localhost:3016/horse', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -63,6 +63,21 @@ const HorseList = () => {
             .catch((err) => {
                 console.log(err.message);
             });
+
+            fetch('http://localhost:3016/horse', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                    setHorses(data);
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
     }
 
     const useSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
