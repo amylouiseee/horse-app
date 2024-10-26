@@ -4,7 +4,7 @@ import { useState } from "react";
 const AddHorse = () => {
 
     interface HorseFormState {
-        id: number;
+        id: string;
         name: string;
         favoriteFood: string;
         height: number;
@@ -12,7 +12,7 @@ const AddHorse = () => {
     }
 
     const [formData, setFormData] = useState<HorseFormState> ({
-        id: 0,
+        id: '0a941ed5-b6b2-4d30-89c4-36c562e562e5',
         name: '',
         favoriteFood: '',
         height: 0,
@@ -20,22 +20,28 @@ const AddHorse = () => {
       })
 
       const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target;
-        setFormData(prevData => ({...prevData, [name]: value}))
+        const {id, value} = e.target;
+        setFormData(prevData => ({...prevData, [id]: value}))
       }
 
       async function usePostData(formData: any) {
-            fetch('http://localhost:3016/horse', {
-                method: 'PUT',
-                headers : { 
-                    'Content-Type': 'application/json'
-                    },
-                body: JSON.stringify({formData})
-                })
-                .then((response) => response.json())
-                .catch((err) => {
-                    console.log(err.message);
-                });
+        const id = formData.id;
+        const name = formData.name;
+        const favoriteFood = formData.favoriteFood;
+        const height = formData.height;
+        const weight = formData.weight;
+        
+        fetch('http://localhost:3016/horse', {
+            method: 'PUT',
+            headers : { 
+                'Content-Type': 'application/json'
+                },
+            body: JSON.stringify({id, name, favoriteFood, height, weight})
+            })
+            .then((response) => response.json())
+            .catch((err) => {
+                console.log(err.message);
+            });
         }
 
       const useSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -62,7 +68,9 @@ const AddHorse = () => {
                 <label className="py-1">
                     Weight (kg): <input id="weight" type="number" form="horse-form" onChange={onChange} className="border-2"/>
                 </label>
-                <input type="submit" className="bg-gray-200 hover:bg-gray-300 font-bold rounded-full py-1 px-5"/>
+                <div className="py-1">
+                    <input type="submit" className="bg-gray-200 hover:bg-gray-300 font-bold rounded-full py-1 px-5 w-32"/>
+                </div>
             </form>
             <br/>
         </div>
