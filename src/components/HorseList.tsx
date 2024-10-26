@@ -1,5 +1,5 @@
 // Interacts with the API to grab all the horses and passes it off to the Horse component
-// Allows for horses to be seen, their details examined and to add a new horse
+// Allows for horses to be read and users can add a new horse
 import { useState, useEffect } from 'react';
 import Horse from './Horse';
 
