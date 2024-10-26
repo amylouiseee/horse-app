@@ -52,7 +52,7 @@ const HorseList = () => {
         const height = formData.height;
         const weight = formData.weight;
 
-        if (name == ''){
+        if (name === ''){
             alert("Name must be entered!");
             return;
         }
