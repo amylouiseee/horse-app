@@ -8,7 +8,7 @@ Created as part of a technical test.
 
 ## How to run the app 🏭
 ### Running docker services
-- Open a secondary terminal window
+- Open a terminal window
 - Enter the command 'cd api'
 - Enter the command 'docker build -t horse_api .'
 - Enter the command 'docker run -p 3016:3016 horse_api'
