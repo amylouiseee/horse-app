@@ -22,7 +22,7 @@ Created as part of a technical test.
 ## Assumptions made/design decisions 👩‍🎨
 - I have changed the file directory name for the API so the file structure looks cleaner
 - Using Tailwind CSS for basic formatting as it is quick to set up
-- No extra input validation needed to be made, except for name being mandatory
+- No extra input validation needed to be made for adding horses, except for name being mandatory
 
 ### Implementations made
 - List horses
