@@ -23,6 +23,7 @@ Created as part of a technical test.
 - I have changed the file directory name for the API so the file structure looks cleaner
 - Using Tailwind CSS for basic formatting as it is quick to set up
 - No extra input validation needed to be made for adding horses, except for name being mandatory
+- Skipped adding pagination for time's sake, but this would be a must if I had the time
 
 ### Implementations made
 - List horses
@@ -30,6 +31,7 @@ Created as part of a technical test.
 - CSS styling
 
 ### Next steps (if it were a real project)
+- Add pagination to the list of horses (cut for time's sake)
 - Display details for a horse
 - Edit details for a horse (someone must be able to see the details to edit them - so this comes second)
 - Comparing horses (again this requires being able to see the details)
