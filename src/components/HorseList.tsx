@@ -52,6 +52,11 @@ const HorseList = () => {
         const height = formData.height;
         const weight = formData.weight;
 
+        if (name == ''){
+            alert("Name must be entered!");
+            return;
+        }
+
         await fetch('http://localhost:3016/horse', {
             method: 'PUT',
             headers: {
