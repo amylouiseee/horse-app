@@ -28,3 +28,8 @@ Created as part of a technical test.
 - List horses
 - Add a horse
 - CSS styling
+
+### Next steps (if it were a real project)
+- Display details for a horse
+- Edit details for a horse (someone must be able to see the details to edit them - so this comes second)
+- Comparing horses (again this requires being able to see the details)
