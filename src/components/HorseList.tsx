@@ -5,6 +5,8 @@ import Horse from './Horse';
 
 const HorseList = () => {
     const [horses, setHorses] = useState<any[]>([]);
+
+    // Get the list of horses on load
     useEffect(() => {
         fetch('http://localhost:3016/horse', {
             headers: {
@@ -22,6 +24,7 @@ const HorseList = () => {
             });
     }, []);
 
+    // Basic data structure of our form and what we want our API to get
     interface HorseFormState {
         id: string;
         name: string;
@@ -30,6 +33,7 @@ const HorseList = () => {
         weight: number;
     }
 
+    // Setting up the data for use in the form
     const [formData, setFormData] = useState<HorseFormState>({
         id: '',
         name: '',
@@ -38,11 +42,13 @@ const HorseList = () => {
         weight: 0,
     })
 
+    // Updating our state when the form is changed
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
         setFormData(prevData => ({ ...prevData, [id]: value }))
     }
 
+    // Update our API and also check the name is entered
     async function usePostData(formData: any) {
         var randomUUID = crypto.randomUUID
 
@@ -56,7 +62,8 @@ const HorseList = () => {
             alert("Name must be entered!");
             return;
         }
-
+        
+        // PUT the new horse
         await fetch('http://localhost:3016/horse', {
             method: 'PUT',
             headers: {
@@ -69,6 +76,7 @@ const HorseList = () => {
                 console.log(err.message);
             });
 
+            // GET the list of horses again
             fetch('http://localhost:3016/horse', {
                 headers: {
                     'Content-Type': 'application/json',
@@ -85,6 +93,7 @@ const HorseList = () => {
                 });
     }
 
+    // Submit the data to the API
     const useSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
         usePostData(formData);
@@ -107,6 +116,7 @@ const HorseList = () => {
             <br />
             <hr />
 
+            {/* Form for adding new horses */}
             <div>
                 <br />
                 <h1 className="text-xl py-0.5">Add a new Horse!</h1>
